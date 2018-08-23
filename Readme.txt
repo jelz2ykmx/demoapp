@@ -1,4 +1,5 @@
 The next projects are only used for demo purpose, please dont distributed those.
+Remember is only demo is not a professional end software.
 
 The first demo is building using angular 6, angular material io and mvc web api 2 and other frameworks.
 Handle authentication by acess token
