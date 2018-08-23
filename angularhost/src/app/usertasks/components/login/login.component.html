@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="login-container">
+    <mat-card class="login-card">
+        <mat-form-field>
+            <input matInput [(ngModel)]="loginData.email" placeholder="Correo" type="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [(ngModel)]="loginData.password" placeholder="Contraseña" type="password">
+        </mat-form-field>
+        <div class="login-buttons">
+            <button mat-raised-button color="primary" (click)="login()" >Login</button>
+        </div>
+    </mat-card> 
+</div>

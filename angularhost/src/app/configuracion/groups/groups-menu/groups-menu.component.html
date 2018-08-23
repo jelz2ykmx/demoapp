@@ -1,0 +1,112 @@
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let res of resultLst">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{res.name}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let reslst of res.lst">
+        <div class="displayExpandContent" style="border-bottom: 0px;" *ngIf="reslst.header == 1">
+            <div class="displayExpandContent50" >
+                {{reslst.name}}
+            </div>
+            <div >
+                <div class="bottom-margin-2x-mat marginbtn">
+                    <button type="button" mat-mini-fab color="primary" (click)="changeStatus(reslst, res);" class="cursorpointer">
+                        <mat-icon>assessment</mat-icon>
+                    </button>
+                </div>
+                <div class="bottom-margin-2x-mat marginbtn">
+                    <button type="button" mat-mini-fab color="primary" (click)="changeStatus(reslst, res);" class="cursorpointer">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+                <div class="bottom-margin-2x-mat marginbtn">
+                    <button type="button" mat-mini-fab color="primary" (click)="changeStatus(reslst, res);" class="cursorpointer">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </div>
+                <div class="bottom-margin-2x-mat marginbtn" >
+                    <button type="button" mat-mini-fab color="primary" (click)="changeStatus(reslst, res);" class="cursorpointer">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="displayExpandContent" *ngIf="reslst.header == 0">
+          <div class="displayExpandContent50" >
+                {{reslst.name}}
+          </div>
+          <div >
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.isquery == 0">
+                <button type="button" mat-mini-fab color="accent" (click)="changeStatus(reslst, res, 0);" [class.cursorpointer]="flagCursor">
+                    <mat-icon>remove</mat-icon>
+                </button>
+            </div>
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.isquery == 1">
+                <button type="button" mat-mini-fab color="primary" (click)="changeStatus( reslst, res, 0);" [class.cursorpointer]="flagCursor">
+                    <mat-icon>done</mat-icon>
+                </button>
+            </div>
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.isquery == 2">
+                <button type="button" mat-mini-fab color="warn" (click)="changeStatus(reslst, res, 0);"  [class.cursorpointer]="flagCursor">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </div>
+
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.isnew == 0">
+                <button type="button" mat-mini-fab color="accent" (click)="changeStatus(reslst, res , 1);" [class.cursorpointer]="flagCursor">
+                    <mat-icon>remove</mat-icon>
+                </button>
+            </div>
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.isnew == 1">
+                <button type="button" mat-mini-fab color="primary" (click)="changeStatus( reslst, res, 1);" [class.cursorpointer]="flagCursor">
+                    <mat-icon>done</mat-icon>
+                </button>
+            </div>
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.isnew == 2">
+                <button type="button" mat-mini-fab color="warn" (click)="changeStatus(reslst, res, 1);"  [class.cursorpointer]="flagCursor">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </div>
+
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.iseditField == 0">
+                <button type="button" mat-mini-fab color="accent" (click)="changeStatus(reslst, res, 2);" [class.cursorpointer]="flagCursor">
+                    <mat-icon>remove</mat-icon>
+                </button>
+            </div>
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.iseditField == 1">
+                <button type="button" mat-mini-fab color="primary" (click)="changeStatus( reslst, res, 2);" [class.cursorpointer]="flagCursor">
+                    <mat-icon>done</mat-icon>
+                </button>
+            </div>
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.iseditField == 2">
+                <button type="button" mat-mini-fab color="warn" (click)="changeStatus(reslst, res, 2);"  [class.cursorpointer]="flagCursor">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </div>
+
+            <div class="bottom-margin-2x-mat marginbtn"  *ngIf="reslst.isdelete == 0">
+                <button type="button" mat-mini-fab color="accent" (click)="changeStatus(reslst, res, 3);" [class.cursorpointer]="flagCursor">
+                    <mat-icon>remove</mat-icon>
+                </button>
+            </div>
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.isdelete == 1">
+                <button type="button" mat-mini-fab color="primary" (click)="changeStatus( reslst, res, 3);" [class.cursorpointer]="flagCursor">
+                    <mat-icon>done</mat-icon>
+                </button>
+            </div>
+            <div class="bottom-margin-2x-mat marginbtn" *ngIf="reslst.isdelete == 2">
+                <button type="button" mat-mini-fab color="warn" (click)="changeStatus(reslst, res, 3);"  [class.cursorpointer]="flagCursor">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+  

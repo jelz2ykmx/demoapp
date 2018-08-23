@@ -1,0 +1,44 @@
+
+<mat-card class="p-1" *ngIf="!loading">
+  <mat-card-title>
+      <div class="card-title-text">{{title}}</div>
+      <mat-divider></mat-divider>
+  </mat-card-title>
+  <mat-card-content>
+  <mat-toolbar class="toolbar-main">
+    <mat-toolbar-row>
+        <span class="toolbar-spacer"></span>
+        <button type="button" mat-mini-fab color="primary" class="mr-1" (click)='doConsulta()'>
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <div class="pb-1"></div>
+    <mat-divider class="top-margin bottom-margin"></mat-divider>
+  <div class="pb-1"></div>   
+  <form [formGroup]="basicForm" class="form-mat" >
+      <div fxLayout="row" fxLayoutWrap="wrap">
+          <div fxFlex="100" fxFlex.gt-xs="100" class="pr-1">
+              <div class="pb-1">
+                  <mat-form-field class="full-width" >
+                      <mat-select placeholder="Mostar" #proveedor formControlName="typeactivoinactivo">
+                          <mat-option *ngFor="let pr of typeArray" [value]='pr.id'>{{pr.typeName}}</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                  
+              </div>
+              <div class="pb-1">
+                <button type="button" mat-mini-fab color="accent" class="mr-1 pull-right" (click)='reloadQuery()'>
+                    <mat-icon>check</mat-icon>
+                </button>
+            </div>
+          </div>
+      </div>
+      
+  </form>
+  
+  </mat-card-content>
+
+</mat-card>
+

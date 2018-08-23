@@ -1,0 +1,53 @@
+.page-wrap {
+    display: flex;
+    align-items: center;
+    padding: 40px 1rem;
+    height: 100%;
+}
+
+.fix {
+    position: relative;
+    overflow: hidden;
+}
+
+.height-100 {
+    min-height: 100vh;
+}
+
+.app-error {
+    text-align: center;
+    width: 320px;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.app-error .error-icon {
+    height: 120px;
+    width: 120px;
+    font-size: 120px;
+    float: left;
+}
+
+.app-error .error-text {
+    float: right;
+    width: 200px;
+    max-width: 200px;
+}
+
+.app-error .error-title {
+    font-size: 5rem;
+    font-weight: 900;
+    margin: 0;
+}
+
+.app-error .error-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.app-error .error-actions {
+    width: 100%;
+    overflow: hidden;
+    min-height: 54px;
+    margin-top: 100px;
+}

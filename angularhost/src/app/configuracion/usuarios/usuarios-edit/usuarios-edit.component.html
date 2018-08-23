@@ -1,0 +1,121 @@
+
+<mat-card class="p-1">
+    <mat-card-title>
+        <div class="card-title-text">{{title}}</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+          
+    <mat-toolbar class="toolbar-main">
+      <mat-toolbar-row>
+          <span class="toolbar-spacer"></span>
+          <button type="button" mat-mini-fab color="primary" class="mr-1" (click)='doConsulta()'>
+              <mat-icon>arrow_back</mat-icon>
+          </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="pb-1"></div>
+    <mat-divider class="top-margin bottom-margin"></mat-divider>
+    <div class="pb-1"></div>    
+    <form [formGroup]="newForm" class="form-mat" >
+        <div fxLayout="row" fxLayoutWrap="wrap">
+            <div fxFlex="100" fxFlex.gt-xs="100" class="pr-1">
+                <div class="pb-1" *ngIf="this.id == '0' || this.editQuery !=2">
+                    <div class="radio-group" *ngIf="!this.isUserAdmin">
+                        <input type="radio" id="option-one" name="selector">
+                        <label #labelPerfil for="option-one" (click)="goRadio(0)">Perfil</label>
+                        <input type="radio" id="option-two" name="selector" >
+                        <label for="option-two" (click)="goRadio(1)">Menu</label>
+<!--
+                        <input type="radio" id="option-three" name="selector" >
+                        <label for="option-three" (click)="goRadio(2)">Web</label>
+-->
+                        <input type="radio" id="option-four" name="selector" >
+                        <label for="option-four" (click)="goRadio(3)">Grupos</label>
+                        
+                    </div>
+                </div>
+                 <div class="pb-1" *ngIf="this.isAdmin">
+                    <mat-checkbox formControlName="isAdmin" (click)='doToogle()'>Administrador!</mat-checkbox>
+                </div>
+                <div *ngIf="this.radios == 0">
+                    <div class="pb-1" *ngIf="this.id == '0' || this.editQuery !=2">
+                        <img [src]="_DomSanitizer.bypassSecurityTrustUrl(file)" width="100" height="100" style="float: left;margin-bottom:20px;" />
+                        <label class="fileContainer " *ngIf="isShowBtnPhoto">
+                            <mat-icon>add_a_photo</mat-icon>
+                            <input  type="file" ngf-select ngf-pattern="'image/*'"accept="image/*" ngf-max-size="2MB" (change)="onFileSelected($event)" />
+                        </label>
+                    </div>
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input matInput type="email" formControlName="email" placeholder="Correo*" 
+                                autocomplete="off" [ngClass]="{'error': isValid('email')}" />
+                        </mat-form-field>
+                    </div>
+                    <div class="pb-1" *ngIf="this.id == '0' || this.editQuery != 2">
+                      <mat-form-field class="full-width">
+                          <input matInput type="text" formControlName="firstname" placeholder="Nombre*" 
+                              autocomplete="off" [ngClass]="{'error': isValid('firstname')}" />
+                      </mat-form-field>
+                    </div>
+                    <div class="pb-1" *ngIf="this.id == '0' || this.editQuery != 2">
+                      <mat-form-field class="full-width">
+                          <input matInput type="text" formControlName="lastname" placeholder="Apellido*" 
+                              autocomplete="off" [ngClass]="{'error': isValid('lastname')}" />
+                      </mat-form-field>
+                    </div>
+                    <div class="pb-1"*ngIf="this.id == '0' || this.editQuery !=2">
+                      <mat-form-field class="full-width">
+                          <input matInput type="text" formControlName="direccion" placeholder="Direccion" 
+                              autocomplete="off" [ngClass]="{'error': isValid('direccion')}" />
+                      </mat-form-field>
+                    </div>
+                    <div class="pb-1" *ngIf="this.id == '0' || this.editQuery != 2">
+                      <mat-form-field class="full-width">
+                          <input matInput type="text" formControlName="colonia" placeholder="Colonia" 
+                              autocomplete="off" [ngClass]="{'error': isValid('colonia')}" />
+                      </mat-form-field>
+                    </div>
+                    <div class="pb-1" *ngIf="this.id == '0' || this.editQuery != 2">
+                      <mat-form-field class="full-width">
+                          <input matInput type="text" formControlName="ciudad" placeholder="Ciudad" 
+                              autocomplete="off" [ngClass]="{'error': isValid('ciudad')}" />
+                      </mat-form-field>
+                    </div>
+                    <div class="pb-1" *ngIf="this.id == '0' || this.editQuery != 2">
+                      <mat-form-field class="full-width">
+                          <input matInput type="text" formControlName="tel" placeholder="Telefono" 
+                              autocomplete="off" [ngClass]="{'error': isValid('tel')}" />
+                      </mat-form-field>
+                    </div>
+                    <div class="pb-1" *ngIf="this.id == '0' || this.editQuery == 2">
+                        <mat-form-field class="full-width">
+                            <input matInput type="password" formControlName="password" placeholder="Contraseña*"  
+                            autocomplete="off" [ngClass]="{'error': isValid('password')}" />
+                        </mat-form-field>
+                    </div>
+                    <div class="pb-1" *ngIf="this.id == '0' || this.editQuery == 2">
+                        <mat-form-field class="full-width">
+                            <input matInput type="password" formControlName="retry" placeholder="Verifique Contraseña*"  
+                                autocomplete="off" [ngClass]="{'error': isValid('retry')}" />
+                        </mat-form-field>
+                    </div>
+                    <!--<span *ngIf="newForm.errors?.notMatchingPassword" style="color:red">{{notMaching}}</span>-->
+                </div>
+            </div>
+        </div>
+    </form>
+    <app-groups-menu *ngIf="this.radios == 1" [menuLst]="menuLst" [editQuery]="editQuery" [id]="id"></app-groups-menu>
+    <app-usuarios-grupos *ngIf="this.radios == 3" [groupsLst]="groupsLst" [editQuery]="editQuery" [id]="id"></app-usuarios-grupos>
+</mat-card>
+  
+<div class="floatButton" *ngIf="!readonly || this.editQuery == 2">
+    <button type="button" mat-mini-fab color="primary" style="bottom: 35px;" class="mr-1 floatButton" (click)='showConfirmacion()'>
+        <mat-icon>save</mat-icon>
+    </button>
+</div>
+
+
+
+
+    
+    

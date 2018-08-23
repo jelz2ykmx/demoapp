@@ -1,0 +1,12 @@
+<div style="background: white;box-shadow: 5px 10px #888888;border-radius: 6px;">
+  <div style="margin: 5px;">
+    <div mat-dialog-content style="text-align: center">
+      <p>¿Estas seguro que deseas guardar?</p>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button color="warn" [mat-dialog-close]="data" (click)="onClick(0)" style="min-width: 0px">No</button>
+      <button mat-button color="primary" [mat-dialog-close]="data" (click)="onClick(1)" style="min-width: 0px">Si</button>
+      <button mat-button color="accent" [mat-dialog-close]="data" (click)="onClick(2)" cdkFocusInitial style="min-width: 0px">Cancelar</button>
+    </div>
+  </div>
+</div>

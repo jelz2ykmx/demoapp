@@ -1,0 +1,45 @@
+
+<mat-card class="p-1" >
+  
+  <mat-card-title>
+      <div class="card-title-text">{{title}}</div>
+      <mat-divider></mat-divider>
+  </mat-card-title>
+        
+  <mat-toolbar class="toolbar-main">
+    <mat-toolbar-row>
+        <span class="toolbar-spacer"></span>
+        <button type="button" mat-mini-fab color="primary" class="mr-1" (click)='doConsulta(undefined)'>
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="pb-1"></div>
+  <mat-divider class="top-margin bottom-margin"></mat-divider>
+  <div class="pb-1"></div>    
+  <form [formGroup]="newMenuForm" class="form-mat" >
+      <div fxLayout="row" fxLayoutWrap="wrap">
+          <div fxFlex="100" fxFlex.gt-xs="100" class="pr-1">
+              <div class="pb-1">
+                <mat-form-field class="full-width">
+                    <input matInput type="text" formControlName="menu" placeholder="Menu*" 
+                        autocomplete="off" [ngClass]="{'error': isValid('menu')}" />
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput type="text" formControlName="entitie" placeholder="Entidad*" 
+                        autocomplete="off" [ngClass]="{'error': isValid('entitie')}" />
+                </mat-form-field>
+              </div> 
+          </div>
+      </div>
+  </form>
+</mat-card>
+
+<div class="floatButton" *ngIf="!readonly">
+  <button type="button" mat-mini-fab color="primary" style="bottom: 35px;" class="mr-1 floatButton" (click)='showConfirmacion()'>
+      <mat-icon>save</mat-icon>
+  </button>
+</div>
+  
+  
+  

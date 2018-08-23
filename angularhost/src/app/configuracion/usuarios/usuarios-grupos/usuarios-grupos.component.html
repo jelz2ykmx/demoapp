@@ -1,0 +1,12 @@
+
+<mat-expansion-panel *ngFor="let res of resultLst"  hideToggle="true" class="mat-expansion-panel-body-mat" [expanded]="true">
+  <div class="displayExpandContent" style="border-bottom: 0px;">
+    <div class="displayExpandContent50" style="text-align: left;" >
+      {{res.name}}
+    </div>  
+    <div class="bottom-margin-2x-mat marginbtn">
+        <mat-checkbox [(ngModel)]="res.ischecked" [disabled]="disabled" color="primary"> </mat-checkbox>
+    </div>
+  </div>
+</mat-expansion-panel>
+  

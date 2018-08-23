@@ -1,0 +1,40 @@
+<mat-card class="pb-1" *ngIf="search">
+  <mat-card-title>
+      <div class="card-title-text">{{title}}</div>
+      <mat-divider></mat-divider>
+  </mat-card-title>
+  <mat-card-content >
+      <form [formGroup]="basicForm">
+          <div fxLayout="row" fxLayoutWrap="wrap">
+              <div fxFlex="100" fxFlex.gt-xs="100" class="pr-1">
+                  <div class="pb-1">
+                      <mat-form-field class="full-width">
+                          <input matInput type="text" formControlName="filter" placeholder="Capture su búsqueda" >
+                      </mat-form-field>
+                  </div>
+                  <div class="pb-1">
+                      <button type="button" mat-mini-fab color="primary" class="mr-1 pull-right" (click)="doSearch()">
+                          <mat-icon>youtube_searched_for</mat-icon>
+                      </button>
+                      <button type="button" mat-mini-fab color="warn" class="mr-1 pull-right" (click)='doNuevo()'>
+                      <mat-icon>add</mat-icon>
+                      </button>
+                      <button type="button" mat-mini-fab color="accent" class="mr-1 pull-right" (click)='toggleFiltro()'>
+                        <mat-icon>filter_list</mat-icon>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </form>
+  </mat-card-content>
+</mat-card>
+<app-menu-filtro *ngIf="viewFilter" (onToggleFiltro)="onToggleFiltro($event)" (onGoSearch)="onGoSearch($event)" [status]="status" ></app-menu-filtro>
+<app-menu-result *ngIf="search" [resultLst]="resultLst" (onEditQuery)="onEditQuery($event)" [status]="status" [path]="path"></app-menu-result>
+<app-menu-edit *ngIf="edit" (onSearch)="onSearch($event)" [id]="id" [editQuery]="editQuery" [path]="path"></app-menu-edit>
+
+
+
+
+
+  
+

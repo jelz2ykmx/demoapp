@@ -1,0 +1,54 @@
+
+<mat-card class="p-1" *ngIf="!loading">
+  <mat-card-title>
+      <div class="card-title-text">{{title}}</div>
+      <mat-divider></mat-divider>
+  </mat-card-title>
+        
+  <mat-toolbar class="toolbar-main">
+    <mat-toolbar-row>
+        <span class="toolbar-spacer"></span>
+        <button type="button" mat-mini-fab color="primary" class="mr-1" (click)='doConsulta()'>
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="pb-1"></div>
+  <mat-divider class="top-margin bottom-margin"></mat-divider>
+  <div class="pb-1"></div>    
+  <form [formGroup]="newForm" class="form-mat" >
+      <div fxLayout="row" fxLayoutWrap="wrap">
+          <div fxFlex="100" fxFlex.gt-xs="100" class="pr-1">
+              <div class="pb-1">
+                <mat-form-field class="full-width">
+                    <input matInput type="text" formControlName="name" placeholder="Nombre*" 
+                        autocomplete="off" [ngClass]="{'error': isValid('name')}" />
+                </mat-form-field>
+              </div>
+              <div class="pb-1">
+                  <div class="can-toggle demo-rebrand-1">
+                      <input id="d" type="checkbox" formControlName="typeData" (click)='doToogle()'>
+                      <label for="d">
+                          <div class="can-toggle__switch" data-checked="Usuarios" data-unchecked="Info"></div>
+                      </label>
+                  </div>
+              </div>
+           </div>
+      </div>
+  </form>
+  <!--
+  <app-groups-menu *ngIf="viewMenu" [menuLst]="menuLst" [editQuery]="editQuery" [id]="id"></app-groups-menu>
+  <app-usuarios-grupos *ngIf="viewUsers" [groupsLst]="groupsLst" [editQuery]="editQuery" [id]="id"></app-usuarios-grupos>-->
+</mat-card>
+
+<div class="floatButton" *ngIf="!readonly">
+  <button type="button" mat-mini-fab color="primary" style="bottom: 35px;" class="mr-1 floatButton" (click)='showConfirmacion()'>
+      <mat-icon>save</mat-icon>
+  </button>
+</div>
+
+
+
+
+  
+  

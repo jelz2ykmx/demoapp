@@ -1,0 +1,45 @@
+<mat-sidenav-container class="app-sidenav-container">
+    
+    <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10" 
+        [opened]="!isScreenSmall()" 
+        [mode]="isScreenSmall() ? 'over' : 'side'">
+        <mat-toolbar color="primary">
+            <span>Main menu</span>
+            <span class="header-spacer"></span>
+            <button mat-button class="exit-toogle" (click)="auth.logout()">
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let menuItem of menuItems">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon svgIcon="{{ menuItem.avatar }}"></mat-icon>
+                            {{ menuItem.menuItem }}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                
+                    <mat-list-item *ngFor="let subMenuitem of menuItem.subMenuitems">
+                        <a matLine routerLink="/{{ subMenuitem.route }}" (click)='doLink(subMenuitem.menuItem)'>
+                            <mat-icon svgIcon="{{ subMenuitem.avatar }}"></mat-icon>
+                            {{ subMenuitem.menuItem }}     
+                        </a>
+                    </mat-list-item>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-nav-list>
+    </mat-sidenav>
+    
+    <div class="app-sidenav-content">
+        <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+        <div>
+            <app-breadcum [breadcum]="breadcum"></app-breadcum>
+            <!--<ng-template app-breadcum></ng-template>-->
+            <div class="wrapper">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+
+</mat-sidenav-container>
