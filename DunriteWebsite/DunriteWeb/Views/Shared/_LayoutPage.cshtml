@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" type="image/png" href="~/Content/img/temp_favicon.jpg">
+    <title>Dun Rite Games | @ViewBag.Title</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Fontawesome Icon font -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/font-awesome.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/jquery.fancybox.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/owl.carousel.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/slit-slider.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/animate.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/main.css")">
+	<link rel="stylesheet" href="@Url.Content("~/Content/css/loaderpage.css")">
+    <!-- Modernizer Script for old Browsers -->
+    <script src="@Url.Content("~/Scripts/modernizr-2.6.2.min.js")"></script>
+    <!-- Main jQuery -->
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    <!-- Twitter Bootstrap -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Single Page Nav -->
+    <script src="~/Scripts/jquery.singlePageNav.min.js"></script>
+    <!-- jquery.fancybox.pack -->
+    <script src="~/Scripts/jquery.fancybox.pack.js"></script>
+    <!-- Owl Carousel -->
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <!-- jquery easing -->
+    <script src="~/Scripts/jquery.easing.min.js"></script>
+    <!-- Fullscreen slider -->
+    <script src="~/Scripts/jquery.slitslider.js"></script>
+    <script src="~/Scripts/jquery.ba-cond.min.js"></script>
+    <!-- onscroll animation -->
+    <script src="~/Scripts/wow.min.js"></script>
+    <!-- Custom Functions -->
+    <script src="~/Scripts/main.js"></script>
+
+    <script type='text/javascript'>
+        function navigate(target) {
+            closetoogle();
+            if (window.location.pathname !== '/' && window.location.pathname !== '/Home') {
+                
+                var newURL = window.location.protocol + "//" + window.location.host + "/Home#" + target;
+                window.location.href = newURL;
+            }
+        }
+    </script>
+    <style>
+        .wow a:hover {
+            color: #e9168c !important;
+        }
+    </style>
+  
+</head>
+<body id="body">
+
+    <div id="preloader">
+        <div class="loder-box">
+            <div id="loader"></div>
+        </div>
+    </div>
+
+    <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <div class="navbar-header">
+                            <!-- responsive nav button -->
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="menumobildee" onclick="cliktoogle();">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- /responsive nav button -->
+                            <!-- logo -->
+                            <h1 class="navbar-brand">
+                                <a href="/Home">
+                                    <img id="logowhite" src="@Url.Content("~/Content/img/LOGO.png")" class="img-responsive col-xs-5 col-sm-5 img-size-logo" />
+                                    <!--<img id="logoblue" src="@Url.Content("~/Content/img/LOGOSCROLL.png")" class="img-responsive col-xs-5 col-sm-5 logohide" style="margin-top: -15px;" />-->
+                                </a>
+                            </h1>
+                            <!-- /logo -->
+                        </div>
+                    </div>
+
+                    <!-- main nav -->
+                    <div class="menumobilde" style="height:0px;">
+                        <div style="display:flex;">
+                            <div  style="flex:50%">
+                                <a href="/Home">
+                                    <img id="mobilelogo" id="logowhite" src="@Url.Content("~/Content/img/LOGOCROLL.png")" class="img-responsive img-size-logo-mobile" />
+                                </a>
+
+                            </div>
+                            <div style="flex:50%; text-align: right;">
+                                <button onclick="closetoogle()" style="background:transparent;border: 0px;">
+                                    <i class="fa fa-times" style="font-size: 40px;color: rgb(15, 32, 108);margin-top: 15px;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <ul  id="mobileclose" style="margin-top:40px">
+                            <li><a href="/Home" class="external"  onclick="closetoogle()">Home</a></li>
+                            <li><a href="#about." onclick='navigate("about");'>About Us</a></li>
+                            <li><a href="#activities." onclick='navigate("activities");'>Activities</a></li>
+                            <li><a href="https://medium.com/&#64;admin_88382" target="_blank" class="external"  onclick="closetoogle()">Blog</a></li>
+                            <li><a href="https://www.youtube.com/user/OneHiveRaids" target="_blank" class="external"  onclick="closetoogle()">One Hive Raids</a></li>
+                            <li><a href="/Careers" class="external"  onclick="closetoogle()">Careers</a></li>
+                            <li><a href="#contact." onclick='navigate("contact");'>Contact</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="col-md-9">
+                        <nav id="navbarmobile" class="collapse navbar-collapse navbar-right" role="navigation">
+                            <ul id="nav" class="nav navbar-nav">
+                                <li><a href="/Home" class="external">Home</a></li>
+                                <li><a href="#about" onclick='navigate("about");'>About Us</a></li>
+                                <li><a href="#activities" onclick='navigate("activities");'>Activities</a></li>
+                                <li><a href="https://medium.com/&#64;admin_88382" target="_blank" class="external">Blog</a></li>
+                                <li><a href="https://www.youtube.com/user/OneHiveRaids" target="_blank" class="external">One Hive Raids</a></li>
+                                <li><a href="/Careers" class="external">Careers</a></li>
+                                <li><a href="#contact" onclick='navigate("contact");'>Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+                <!-- /main nav -->
+            </div>
+        </div>
+    </header>
+
+    <main class="site-content" role="main">
+        @RenderBody()
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row text-center">
+                <div class="footer-content">
+
+                    <div class="footer-social">
+                        <ul>
+                            <li class="wow animated zoomIn"><a href="https://www.facebook.com/dunritegames" target="_blank"><i class="fa fa-facebook fa-3x"></i></a></li>
+                            <li class="wow animated zoomIn" data-wow-delay="0.3s"><a href="https://twitter.com/DunRiteGames" target="_blank"><i class="fa fa-twitter fa-3x"></i></a></li>
+                            <li class="wow animated zoomIn" data-wow-delay="0.9s"><a href="https://www.instagram.com/dunritegames/?hl=es-la" target="_blank"><i class="fa fa-instagram fa-3x"></i></a></li>
+                            <li class="wow animated zoomIn" data-wow-delay="1.2s"><a href="https://www.youtube.com/user/OneHiveRaids" target="_blank"><i class="fa fa-youtube fa-3x"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <p>Dun Rite Games &copy; Copyright 2018. </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
