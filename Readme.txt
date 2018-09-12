@@ -11,14 +11,6 @@ angularhost -> frontend
 hostapi -> web api
 database.sql -> script with all tables and data
 
-second project is a mvc app frontend
-this show some about fancy eye candy.
-if you clicck in any last image those get new picture from aws serverless using s3, lambda and api gateway.
-maybe take a litle time but is only a demo.
-  
-
-The project angular:
-
 Steps to install and run:
 
 1.- view installing_database.mp4
@@ -26,5 +18,11 @@ Steps to install and run:
 3.- view running_webservices.mp4.
 4.- view demo_app,mp4
 
+second project is a mvc app frontend
+this show some about fancy eye candy.
+if you clicck in any last image those get new picture from aws serverless using s3, lambda and api gateway.
+maybe take a litle time but is only a demo.
+  
+eyecandy.mp4  
 
  
