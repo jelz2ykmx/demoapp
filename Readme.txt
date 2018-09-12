@@ -17,7 +17,13 @@ if you clicck in any last image those get new picture from aws serverless using 
 maybe take a litle time but is only a demo.
   
 
+The project angular:
 
+Steps to install and run:
+
+1.- view installing_database.mp4
+2.- view building and running.app.mp4
+3.- view running_webservice
 
 
  
